@@ -5,30 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | IP Address Tracker</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- BootStrap-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+   <!-- Mobile and Desktop Stylesheets-->
+    <link rel="stylesheet" href="./styles/mobile.styles.css">
+    <link rel="stylesheet" href="./styles/desktop.styles.css">
+
+    <!-- axios install, goes in head so it doesn't show up in the body and comes before the other js files so it all works correctly since they need to look to axios as part of the functions--->
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
+
 <body>
+  <main id="mainForm" class="mainForm">
+    <!--div for background top bar graphic-->
+    <div class="background-top-bar-graphic" aria-hidden="true"></div>
+    <!-- main section for ip tracker container-->
+     <section class="tracker-main-container flex-col-center">
+        <section class="search-section">
+        <!-- heading container-->
+         <header class="tracker-heading">
+          <h1 class="tracker-heading__title">IP Address Tracker</h1>
+         </header>
+         <!-- search bar for the tracker-->
+          <section class="search-bar__container">
+            <form id="search-bar" class="search-bar">
+              <label for="search-input" class="visually-hidden">Search for an IP address or domain</label>
+              <input type="text" class="search-bar" id="search-input" placeholder="Search for any IP address or domain" required>
 
-  IP Address Tracker
+              <div class="search-button" id="search-button">
+                <button type="submit" class="submit-btn" aria-label="Search">
+                  <img src="./images/icon-arrow.svg" alt="" aria-hidden="true" class="search-btn__img">
+                </button>
+              </div>
+            </form>
+          </section>
+          <!--Results container-->
+          <section class="results-container" aria-live="polite">
+          <div id="spinner" class="spinner" role="status" hidden></div>
+            <span class="visually-hidden">Loading...</span>
+            <div id="results-cards" class="results-cards">
+              <div class="ip-address-results">
+                <h2 class="results__title">IP ADDRESS</h2>
+                <p class="results__text" id="ip-results"></p>
+              </div>
+              <div class="location-results">
+                <h2 class="results__title">LOCATION</h2>
+                <p class="results__text" id="location-results"></p>
+              </div>
+              <div class="timezone-results">
+                <h2 class="results__title">TIME ZONE</h2>
+                <p class="results__text" id="timezone-results"><span class="timezone__label">UTC:</span></p>
+              </div>
+              <div class="isp-results">
+                <h2 class="results__title">ISP</h2>
+                <p class="results__text" id="id-results"></p>
+              </div>
+            </div>
+          </section>
+          <div class="location-container__img">
+            <img src="./images/icon-location.svg" alt="" class="location__img">
+          </div>
 
-  Search for any IP address or domain
+          </section>
 
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  
+
+  </section><!-- main container -->
+</main>
+
+
+
+
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Ella Koch</a>.
   </div>
+
+  <!-- JS files-->
+    <script type="module" src="./scripts/main.js"></script>
 </body>
 </html>
