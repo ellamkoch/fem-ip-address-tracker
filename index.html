@@ -29,22 +29,22 @@
 </head>
 
 <body>
-  <main id="mainForm" class="mainForm container">
+  <main id="mainForm" class="mainForm container-fluid p-0">
     <!--div for background top bar graphic-->
     <div class="background-top-bar-graphic" aria-hidden="true"></div>
     <!-- main section for ip tracker container-->
-     <section class="tracker-main-container flex-col-center">
-        <section class="search-section">
+     <section class="tracker-main container w=375 d-flex flex-column align-items-center justify-content-center">
+        <section class="search-section container-">
         <!-- heading container-->
          <header class="tracker-heading">
-          <h1 class="tracker-heading__title">IP Address Tracker</h1>
+          <h1 class="tracker-heading__title h1 fw-bold text-align-center">IP Address Tracker</h1>
          </header>
          <!-- search bar for the tracker-->
-          <section class="search-bar__container">
+          <section class="search-bar container">
             <form id="search-bar" class="search-bar">
               <label for="search-input" class="visually-hidden">Search for an IP address or domain</label>
               <input type="text" class="search-bar" id="search-input" placeholder="Search for any IP address or domain" required>
-
+              <!--submit button-->
               <div class="search-button" id="search-button">
                 <button type="submit" class="submit-btn" aria-label="Search">
                   <img src="./images/icon-arrow.svg" alt="" aria-hidden="true" class="search-btn__img">
@@ -52,31 +52,35 @@
               </div>
             </form>
           </section>
+
           <!--Results container-->
-          <section class="results-container" aria-live="polite">
+          <section class="results container" aria-live="polite">
           <div id="spinner" class="spinner" role="status" hidden></div>
             <span class="visually-hidden">Loading...</span>
-            <div id="results-cards" class="results-cards">
+            <div id="results-cards container" class="results-cards">
               <div class="ip-address-results">
-                <h2 class="results__title">IP ADDRESS</h2>
+                <h2 class="results__title h2" >IP ADDRESS</h2>
                 <p class="results__text" id="ip-results"></p>
               </div>
               <div class="location-results">
-                <h2 class="results__title">LOCATION</h2>
+                <h2 class="results__title h2">LOCATION</h2>
                 <p class="results__text" id="location-results"></p>
               </div>
               <div class="timezone-results">
-                <h2 class="results__title">TIME ZONE</h2>
+                <h2 class="results__title h2">TIME ZONE</h2>
                 <p class="results__text" id="timezone-results"><span class="timezone__label">UTC:</span></p>
               </div>
               <div class="isp-results">
-                <h2 class="results__title">ISP</h2>
+                <h2 class="results__title h2">ISP</h2>
                 <p class="results__text" id="id-results"></p>
               </div>
             </div>
           </section>
-          <div class="location-container__img">
+            <!--Location Image-->
+          <div class="location container-fluid">
+            <img src="./images/map-placeholder.png" alt="" aria-hidden="true" class="map-placeholder__img">
             <img src="./images/icon-location.svg" alt="" class="location__img">
+
           </div>
 
           </section>
@@ -88,7 +92,7 @@
 
 
 
-  <div class="attribution">
+  <div class="attribution container">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Ella Koch</a>.
   </div>
