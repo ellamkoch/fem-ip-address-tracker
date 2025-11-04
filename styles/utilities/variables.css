@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+/*dont need @font-face since we're importing from google and its in the head in the html*/
+
+
+:root {
+
+
+    /*Typography*/
+    --font-primary: 'rubrik', sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-semi-bold: 500;
+    --font-weight-bold: 700;
+    --font-size-base: 18px;
+
+    /* color palette*/
+    --color-gray-950: hsl(0, 0%, 17%);
+    --color-gray-400: hsl(0, 0%, 58%);
+
+     /*line spacing*/
+    --line-height-base: 1.5; /*sets global line height for the page*/
+}
