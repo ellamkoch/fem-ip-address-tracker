@@ -1,0 +1,8 @@
+
+/* to adjust for desktops having a bigger screen*/
+@media (min-width: 768px) {
+  .mainForm {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}

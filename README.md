@@ -16,7 +16,7 @@ This is a solution to the [IP address tracker challenge on Frontend Mentor](http
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+
 
 ## Overview
 
@@ -39,7 +39,7 @@ Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to t
 
 Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.
 
 ### Links
 
@@ -48,7 +48,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ## My process
 ### Postman Testing of the API
-Before building the UI, I fully tested the Geo.IPify API was fully tested and documented in ith with screenshots of Postman to confirm I had everything set up correctly.
+Before building the UI, I fully tested the Geo.IPify API and documented with screenshots of Postman to confirm I had everything set up correctly.
 
 #### Environment Setup
 | Variable | Value |
@@ -83,59 +83,49 @@ Before building the UI, I fully tested the Geo.IPify API was fully tested and do
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Bootstrap 5](https://getbootstrap.com/)
+- Modular JavaScript (using [Axios](https://axios-http.com/))
+- Postman for API testing
+- Geo.IPify API for data
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+- Gained more experience working and testing APIs with postman.
+- Learned a lot more about absolute positioning and how percentages actually behave inside relatively positioned containers.
+Centering the map pin was a good example — using
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+top: 25%;
+left: 50%;
+transform: translate(-50%, -100%);
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
+- learned about how to use bootstrap and its limitations compared to custom css. for example, I tried to use bootstrap as much as possible, but there were some items I had to use custom css to make sure it was closer to the final design images from Front End Mentor.
+- Reminded how to float pieces of the page, i.e. the search bar and other containers above the background images
+- More experience trying to use variables and utilities css files for more organization of css styles
+- More experience with making modular js files to separate functions and import/export them.
+- For accessibility, I added aria-live for the results area and set up a <pre> element for showing example error messages later on.
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+If I have time, I’ll add the desktop version with hover states and finish the JavaScript for live API results of the location of the IP address searched.
+Right now, I just used a static map image while setting up the layout.
 
 ### Useful resources
+- [Bootstrap 5 Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/) – main reference for class names, spacing utilities, and component options.
+- [Traversy Media: Bootstrap 5 Crash Course](https://www.youtube.com/watch?v=4sosXZsdy-s) – helped me get more comfortable with Bootstrap’s spacing, grid, and button utilities.
+- [Geo.IPify API Docs](https://geo.ipify.org/) – used for all Postman tests and API setup.
+- [Frontend Mentor Challenge Page](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0) – the base project instructions and design specs.
+- [CSS-Tricks: Complete Guide to Centering](https://css-tricks.com/centering-css-complete-guide/) – helped me understand how to use `transform` and percentages properly.
+- [GeeksforGeeks: Center Absolutely Positioned Elements](https://www.geeksforgeeks.org/css/how-to-center-absolutely-positioned-element-in-div-using-css/) – another quick reference for pin placement.
+- [Stack Overflow: CSS Centering with Transform](https://stackoverflow.com/questions/42121150/css-centering-with-transform) – cleared up why `top:50%` wasn’t perfect visually.
+- [Reform Blog: Accessible Form Error Messaging](https://www.reform.app/blog/accessible-form-error-messaging-best-practices) – for the `<pre>` example and validation ideas.
+- [NNG: Error Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/) – UX best practices for clear feedback.
+- [W3C WAI: User Notifications](https://www.w3.org/WAI/tutorials/forms/notifications/) – for accessible live-region error displays.
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Frontend Mentor - [@ellamkoch](https://www.frontendmentor.io/profile/ellamkoch)
 
 ## Acknowledgments
+Thanks to Ulises and classmates for the feedback during the lead up to the presentation. Also using some Bootstrap tricks from Traversy’s videos helped me figure out the responsive parts a lot faster.
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
