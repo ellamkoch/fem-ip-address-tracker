@@ -48,7 +48,7 @@ Note: Delete this note and the paragraphs above when you add your screenshot. If
 
 ## My process
 ### Postman Testing of the API
-Before building the UI, I fully tested the Geo.IPify API and documented with screenshots of Postman to confirm I had everything set up correctly.
+Before building the UI, I fully tested the Geo.IPify API and documented with screenshots of Postman to confirm I had everything set up correctly. Early Postman requests originally failed or returned limited data because I used the country endpoint without specifying /country,city and forgot to include the apiKey= parameter in the query string. Once corrected, all responses returned full location data (city, region, postal code, timezone) as expected.
 
 #### Environment Setup
 | Variable | Value |
@@ -120,7 +120,6 @@ Right now, I just used a static map image while setting up the layout.
 - [Reform Blog: Accessible Form Error Messaging](https://www.reform.app/blog/accessible-form-error-messaging-best-practices) – for the `<pre>` example and validation ideas.
 - [NNG: Error Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/) – UX best practices for clear feedback.
 - [W3C WAI: User Notifications](https://www.w3.org/WAI/tutorials/forms/notifications/) – for accessible live-region error displays.
-
 
 ## Author
 - Frontend Mentor - [@ellamkoch](https://www.frontendmentor.io/profile/ellamkoch)

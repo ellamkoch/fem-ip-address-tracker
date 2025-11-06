@@ -82,6 +82,10 @@
                 <img src="./images/icon-arrow.svg" alt="" aria-hidden="true" class="search-btn__img mx-auto"><!--aria-controls points screenreaders to the information style setting increases curve on the RIGHT corners only with bootstrap. mx-auto centers image horizontally-->
                 </button>
               </form>
+              <!-- Error box (hidden by default, shown by renderIpInfo.js) -->
+              <div class="error-container container mt-2 text-center">
+                <pre id="errorBox" class="errorBox visually-hidden text-danger small" aria-live="polite"></pre><!--bootstrap hides this thanks to the visually hidden part. text-danger shows red text and small is the text size. -->
+              </div>
             </section>
             </div>
 
@@ -91,7 +95,7 @@
             <span class="visually-hidden">Loading...</span>
     <!--Location Image-->
         <div class="map-container position-relative"  > <!--position relative allows child elements to be positioned absolutely if needed later. -->
-            <img src="https://media.nngroup.com/media/editor/2021/06/18/london-brixton-local.png" alt="map showing approximate location of ip address searched" class="map-placeholder__img">
+            <img src="https://media.nngroup.com/media/editor/2021/06/18/london-brixton-local.png" alt="map showing approximate location of ip address searched" class="map-placeholder__img" id="mapPin">
             <img src="./images/icon-location.svg" alt="" aria-hidden="true" class="location__img">
           </div>
           <!--results card container-->
@@ -105,14 +109,14 @@
                 <h2 class="results__title fw-bold mt-4">IP ADDRESS</h2><!--mt-1 to move it down slightly in the container. only for the top one-->
                 <p class="results__text fs-4 fw-semibold mb-3" id="ip-results"></p><!--fs is font-size in bootstrap-->
               <!-- location-->
-                <h2 class="results__title   fw-bold  ">LOCATION</h2>
+                <h2 class="results__title   fw-bold">LOCATION</h2>
                 <p class="results__text fs-4 fw-semibold mb-3" id="location-results"></p>
               <!-- timezone-->
                 <h2 class="results__title fw-bold">TIMEZONE</h2>
-                <p class="results__text fs-4 fw-semibold mb-3" id="timezone-results"><span class="timezone__label me-1 fs-4 fw-semibold">UTC</span></span>
+                <p class="results__text fs-4 fw-semibold mb-3" id="timezone-results"><span class="timezone__label me-1 fs-4 fw-semibold">UTC</span></p>
                   <!-- internet service provider-->
                 <h2 class="results__title fw-bold ">ISP</h2>
-                <p class="results__text fs-4 fw-semibold mb-4" id="id-results"></p>
+                <p class="results__text fs-4 fw-semibold mb-4" id="isp-results"></p>
 
             </div>
           </section>
