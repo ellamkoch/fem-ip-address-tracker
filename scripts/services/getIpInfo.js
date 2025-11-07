@@ -19,7 +19,7 @@ async function getIpInfo(inputValue) {
     }
 
     try {
-        const response = await axios.get(endpoint); // reaches out to axios to send a GET request to the pokemon api at the endpoint that matches what the user put in.
+        const response = await axios.get(endpoint); // reaches out to axios to send a GET request to the api at the endpoint that matches what the user put in.
 
         const data = response.data;// extracts data object from the axios response // will put back in if it doesn't work as it should.
 

@@ -23,12 +23,12 @@ form.addEventListener('submit', async (e)=> {
     //bootstrap validation
     // if (!form.checkValidity()) {// this calls for the validity check for what I did for bootstrap with
     //     form.classList.add('was-validated'); // boot strap validation styles will only show up with this.
-    //     return; // stops functions there on the form if bootstrap validation is triggered. - saw this in the Traversy video, thought it was fun, but couldnt get it to display as I'd like, so removing for now.
+    //     return; // stops functions there on the form if bootstrap validation is triggered. - saw this in the Traversy video, thought it was fun, but couldn't get it to display as I'd like, so removing for now.
     // }
 
     const ipValue = input.value.trim(); // grabs users input and trims it if they put extra spaces around it to ensure proper results are returned.
 
-    if (!ipValue) {// Shows a friendly message in the <pre> area with the errorBox div. ! tells us that if the value isnt correct to trigger this error message.
+    if (!ipValue) {// Shows a friendly message in the <pre> area with the errorBox div. ! tells us that if the value isn't correct to trigger this error message.
         errorBox.classList.remove('visually-hidden');//removes visually hidden class)
         errorBox.textContent = "No input or improper IP address entered. Format must be as 8.8.8.8 or domain.com";
             return; // stop functions here if there's an error triggered based on this
@@ -54,7 +54,7 @@ form.addEventListener('submit', async (e)=> {
 
             renderIpInfo(apiResponse); // calls render function and puts in the api response info that's been stored.
             if (apiResponse.success) {
-                results.classList.remove('d-none'); // removes the d-none in teh class and makes this section visible.
+                results.classList.remove('d-none'); // removes the d-none in the class and makes this section visible.
                 results.classList.add('show'); //makes the fade animation work from bootstrap and shows the results section to reveal the fetched location info of the ip address.
             } else {
                 results.classList.add('d-none'); // keep map/card hidden on errors

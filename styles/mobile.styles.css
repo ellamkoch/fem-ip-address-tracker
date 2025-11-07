@@ -45,7 +45,7 @@ p, span {
     padding-inline: 2rem;
     border-top-right-radius: 0;   /* makes the edge flat where it connects w/ the button */
     border-bottom-right-radius: 0;
-  /* box-shadow: 0 4px 16px rgba(0,0,0,.12); soft depth like comp. hard to see currently so removed. */
+  
 }
 
 .ip-input::placeholder {
@@ -92,8 +92,6 @@ p, span {
 
 }
 
-
-
 .results__title {
   letter-spacing: 0.15em;    /* adds a bit of space between letters */
   color: var(--color-text-secondary);
@@ -113,11 +111,11 @@ p, span {
 #errorBox {
   color: var(--bs-danger, #dc3545);
   font-weight: 600;
-  white-space: pre-wrap;   /* wrap long API errors instead of overflowing */
+  white-space: pre-wrap;   /* wraps long API errors instead of overflowing */
   margin: 0;
 }
-/* hides bootstrap messages so only ours shows*/
+/* hides bootstrap messages so only ours shows
 .invalid-feedback,
 .valid-feedback {
   display: none !important;
-}
+} Commented this out in html so it was no longer needed here. */

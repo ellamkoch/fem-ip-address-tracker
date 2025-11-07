@@ -1,6 +1,4 @@
 //This file renders the ip info for the card on the page after the search
-
-
 function renderIpInfo(apiResponse) {
     // error box reference to show error messages on the page in the errorBox div at the bottom of the form.
     const errorBox = document.getElementById('errorBox');

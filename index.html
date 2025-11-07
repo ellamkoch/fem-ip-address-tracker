@@ -32,7 +32,7 @@
   <main id="mainForm" class="mainForm container-fluid p-0 m-0">
     <!--container fluid makes it span the entire view port width and removes side padding. the p-0 and m-0 removes any padding and margin styles that bootstrap automatically applies. -->
     <!--div for background top bar graphic-->
-    <!-- <div class="background-top-bar-graphic img-fluid" aria-hidden="true"></div>img fluid applies max-width: 100% and height auto so image scales w/ parent. MOVED THIS TO INSIDE THE HEADER SECTION WITHIN THE CSS TO MAKE IT WORK WITH REST OF THE PAGE LIKE THE EXAMPLE. -->
+    <!-- <div class="background-top-bar-graphic img-fluid" aria-hidden="true"></div>img fluid applies max-width: 100% and height auto so image scales w/ parent. MOVED THIS TO INSIDE THE HEADER SECTION WITHIN THE CSS TO MAKE IT WORK WITH REST OF THE PAGE LIKE THE front end mentor EXAMPLE. -->
 
     <!-- main section for ip tracker container-->
      <section class="tracker-main container px-0" style="margin-top: -5rem;"><!--container tells bootstrap this is a container, px-0 sets the x axis padding to 0, allowing the graphic to expand fully to the sides. margin top style is negative so bootstrap floats it over the background.  -->
@@ -67,8 +67,8 @@
               the pattern checks for the validity of the ip address, in this case, an ipv4 ip address. took this out for now to focus on main. may make it work later if i can pattern="^((25[0-5]|2[0-4][0-9]|?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|?[0-9][0-9]?)$" -->
 
               <!--validation msgs that work with bootstrap and the pattern check. Bootstrap will show/hide when you toggle classes-->
-              <div class="invalid-feedback">Incorrect IP Address</div>
-              <div class="valid-feedback">Correct IP Address</div>
+              <!-- <div class="invalid-feedback">Incorrect IP Address</div>
+              <div class="valid-feedback">Correct IP Address</div> -->
 
               <!--submit button-->
               <!--btn-dark sets the color of this, rounded end rounds part of the button to help complete the shape in the design-->
@@ -80,6 +80,7 @@
                 <img src="./images/icon-arrow.svg" alt="" aria-hidden="true" class="search-btn__img mx-auto"><!--aria-controls points screenreaders to the information style setting increases curve on the RIGHT corners only with bootstrap. mx-auto centers image horizontally-->
                 </button>
               </form>
+
               <!-- Error box (hidden by default, shown by renderIpInfo.js) -->
               <div class="error-container container mt-2 text-center border-0 shadow rounded-4" >
                 <pre id="errorBox"
@@ -89,7 +90,8 @@
               </div>
             </section>
             </div>
-        <!-- loading spinner-->
+
+            <!-- loading spinner-->
              <div id="spinner" class="position-fixed top-50 start-50 translate-middle" hidden>
                 <div class="spinner-grow" role="status" aria-label="Loading"></div>
               </div>
@@ -104,7 +106,7 @@
           <!--results card container-->
             <div id="results-cards"
             class="results container card border-0 shadow rounded-4 mx-auto text-center position-relative "
-            style="width: 85%; margin-top: -68rem; z-index: 2"><!--p-3 adds padding (1rem top/bottom + 1rem left/right).z-index ensures the card stays layered above content as shown in final design the margin top being negative helps to float the section upword. tabindex lets js move focus here as search results are revealed-->
+            style="width: 85%; margin-top: -68rem; z-index: 2"><!--.z-index ensures the card stays layered above content as shown in final design the margin top being negative helps to float the section upword. -->
           <!-- results-->
            <!-- xs reduces font size
             me-1 adds a small space btwn UTC and the value. stands for margin-end-->
