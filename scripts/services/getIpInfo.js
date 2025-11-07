@@ -2,11 +2,21 @@
 
 //Variables
 const baseUrl = 'https://geo.ipify.org/api/v2/country,city?'; //Base url to pull info needed. Have to use City/Country version of url, not the Country version to make sure we pull back all info needed.
-const apiKey = 'apiKey=at_JeyrbjM5jdY0NxCWP0N2dt02YztT4';
-const ipAddressConfig = '&ipAddress='
+const apiKey = 'apiKey=at_O5ZJnobPavfutLnNvJh5LU74hgDZH';
 
-async function getIpInfo(ipAddress) {
-    const endpoint =`${baseUrl}${apiKey}${ipAddressConfig}${ipAddress}`;//this line builds the api url endpoint dynamically, based upon ip put in on html page
+
+async function getIpInfo(inputValue) {
+       // if it has letters, it's a domain like google.com
+    // if it's only numbers, it's an IP address like 8.8.8.8
+    let endpoint = '';
+
+    if (inputValue.match(/[a-zA-Z]/)) { // looks for letters in the string. if at least one matches it assumes its a domain.
+        // has letters → use domain
+        endpoint = `${baseUrl}${apiKey}&domain=${inputValue}`;
+    } else {
+        // only numbers → use ipAddress
+        endpoint = `${baseUrl}${apiKey}&ipAddress=${inputValue}`;
+    }
 
     try {
         const response = await axios.get(endpoint); // reaches out to axios to send a GET request to the pokemon api at the endpoint that matches what the user put in.

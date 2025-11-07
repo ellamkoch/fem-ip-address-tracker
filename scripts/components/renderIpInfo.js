@@ -22,18 +22,19 @@ function renderIpInfo(apiResponse) {
 
     //string information to pull from the api, location and timezone
     locationText.innerHTML = `${ipResults.location.city}, ${ipResults.location.region} ${ipResults.location.postalCode}`;//innerHTML inserts html markup language to the page.
-    timezoneText.innerHTML = `${ipResults.location.timezone}`;
+    timezoneText.innerHTML = `<span class="timezone__label me-1 fs-4 fw-semibold">UTC</span>${ipResults.location.timezone}`;//keepts the UTC in the html when doing it this way
 
     // hides the error box div if it was previously visible
     errorBox.classList.add('visually-hidden');
-    errorBox.innerText = '';// clears out any text that maybe in the error box
+    errorBox.textContent = '';// clears out any text that maybe in the error box
 
  } else {
     // error message displayed if there's a bad response from the api
-    const {error} = apiResponse; //breaks out the error message from the api response upon a failed search and stores it in the error constant. {} tell js to pull out the property name error from apiResponse and store it as a new variable called error.
-    errorBox.innerHTML = `
-    <pre>API failed because of ${error.message}</pre>`
- };// above is the error message that is displayed with the error from the api as to why it failed. 
+    const { error } = apiResponse; //breaks out the error message from the api response upon a failed search and stores it in the error constant. {} tell js to pull out the property name error from apiResponse and store it as a new variable called error.
+    errorBox.classList.remove('visually-hidden');
+   errorBox.textContent =`API failed because of ${error.message}`;
+
+ };// above is the error message that is displayed with the error from the api as to why it failed.
 }
- // enables export to other files. only function to export, so we can list it this way
+ // enables export to other files. only function to export, so we can list it this way. needs {} otherwise
  export default renderIpInfo;

@@ -84,7 +84,7 @@ p, span {
 
 .location__img {
   position: absolute; /*absolute helps with the positioning of the icon based within the container and bases it off the position: relative up above in the map-container.*/
-  top: 25%; /*moves the top edge of the img down 25% of the container height*/
+  top: 30%; /*moves the top edge of the img down 25% of the container height*/
   left: 50%; /*moves the image approximately half way across the container's width*/
   transform: translate(-50%, -100%); /* adjusts so bottom point of pin sits centered */
   width: 50px;
@@ -102,4 +102,22 @@ p, span {
 
 .results__text {
     margin-bottom: 0.02rem;
+}
+/* errorbox styles*/
+.error-container {
+  max-width: 90%;
+  margin: .25rem auto 0;
+  text-align: right;
+}
+
+#errorBox {
+  color: var(--bs-danger, #dc3545);
+  font-weight: 600;
+  white-space: pre-wrap;   /* wrap long API errors instead of overflowing */
+  margin: 0;
+}
+/* hides bootstrap messages so only ours shows*/
+.invalid-feedback,
+.valid-feedback {
+  display: none !important;
 }
