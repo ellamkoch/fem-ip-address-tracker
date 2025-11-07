@@ -1,0 +1,13 @@
+/* style imports*/
+@import './utilities/variables.css';
+@import './utilities/utilities.css';
+
+
+/* to adjust for desktops having a bigger screen*/
+@media (min-width: 768px) {
+  .mainForm {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+/* started this file in case i had time to do it. went for mobile first*/

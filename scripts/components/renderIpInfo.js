@@ -1,0 +1,38 @@
+//This file renders the ip info for the card on the page after the search
+function renderIpInfo(apiResponse) {
+    // error box reference to show error messages on the page in the errorBox div at the bottom of the form.
+    const errorBox = document.getElementById('errorBox');
+
+    if(apiResponse.success) {
+    //variable to hold the api response of the ip search results
+    const ipResults = apiResponse.data;
+// variables for innerHTML to dynamically display it on the page upon a successful search.
+    const ipText = document.getElementById('ip-results');
+    const locationText = document.getElementById('location-results');
+    const timezoneText = document.getElementById('timezone-results');
+    const ispText = document.getElementById('isp-results');
+
+    // building out the location card for the html page
+    // non string info to pull from api
+    //innerTEXT treats this as plain text and inserts it as is.
+    ipText.innerText = ipResults.ip; //This line displays the IP Address searched.
+    ispText.innerText = ipResults.isp; // this line displays the isp of the ip address searched.
+
+    //string information to pull from the api, location and timezone
+    locationText.innerHTML = `${ipResults.location.city}, ${ipResults.location.region} ${ipResults.location.postalCode}`;//innerHTML inserts html markup language to the page.
+    timezoneText.innerHTML = `<span class="timezone__label me-1 fs-4 fw-semibold">UTC</span>${ipResults.location.timezone}`;//keepts the UTC in the html when doing it this way
+
+    // hides the error box div if it was previously visible
+    errorBox.classList.add('visually-hidden');
+    errorBox.textContent = '';// clears out any text that maybe in the error box
+
+ } else {
+    // error message displayed if there's a bad response from the api
+    const { error } = apiResponse; //breaks out the error message from the api response upon a failed search and stores it in the error constant. {} tell js to pull out the property name error from apiResponse and store it as a new variable called error.
+    errorBox.classList.remove('visually-hidden');
+   errorBox.textContent =`API failed because of ${error.message}`;
+
+ };// above is the error message that is displayed with the error from the api as to why it failed.
+}
+ // enables export to other files. only function to export, so we can list it this way. needs {} otherwise
+ export default renderIpInfo;

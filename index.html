@@ -5,30 +5,148 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | IP Address Tracker</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <title>Frontend Mentor | IP Address Tracker</title>
+<!-- Font has to go before bootstrap so its loaded so it can use it-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+  <!-- BootStrap-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+   <!-- Mobile and Desktop Stylesheets-->
+    <link rel="stylesheet" href="./styles/mobile.styles.css">
+    <link rel="stylesheet" href="./styles/desktop.styles.css">
+
+    <!-- axios install, goes in head so it doesn't show up in the body and comes before the other js files so it all works correctly since they need to look to axios as part of the functions--->
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
+
 <body>
+  <main id="mainForm" class="mainForm container-fluid p-0 m-0">
+    <!--container fluid makes it span the entire view port width and removes side padding. the p-0 and m-0 removes any padding and margin styles that bootstrap automatically applies. -->
+    <!--div for background top bar graphic-->
+    <!-- <div class="background-top-bar-graphic img-fluid" aria-hidden="true"></div>img fluid applies max-width: 100% and height auto so image scales w/ parent. MOVED THIS TO INSIDE THE HEADER SECTION WITHIN THE CSS TO MAKE IT WORK WITH REST OF THE PAGE LIKE THE front end mentor EXAMPLE. -->
 
-  IP Address Tracker
+    <!-- main section for ip tracker container-->
+     <section class="tracker-main container px-0" style="margin-top: -5rem;"><!--container tells bootstrap this is a container, px-0 sets the x axis padding to 0, allowing the graphic to expand fully to the sides. margin top style is negative so bootstrap floats it over the background.  -->
+        <div class="search-section text-white text-center py-4 d-flex flex-column align-items-center justify-content-center"> <!-- text-white for white text color,
+          text-center centers everything text wise in this section, and then does padding on the y axis at 1.5 rem x 4.
+          d-flex, flex-column, align-items-center and justify-content-center center the h1 and form inside the top bar graphic. -->
 
-  Search for any IP address or domain
+          <!-- heading container-->
+         <header class="tracker-heading d-flex justify-content-center mb-3"><!-- mb3 pushes up the text from the bottom margin by 3px-->
+          <h1 class="tracker-heading__title h1">IP Address Tracker</h1><!-- h1  tells bootstrap this is a h1 heading.-->
+         </header>
 
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+         <!-- search bar for the tracker-->
+          <section class="search-bar container" style="max-width: 100%;"><!--container helps to keep this section responsive based on screen size. style of max-width makes sure it doesn't shrink on mobile screens-->
+            <form novalidate id="search-bar" class="search-bar d-flex align-items-start justify-content-center shadow bg-transparent">
+              <!-- novalidate lets us control validation styling and will delay validation until submit is pressed. works w/ js script in the main.js file to check validation.
+               d-flex centers input and button into one row
+               align-items-start keeps whats in the form aligned at the top of the form.
+               justify-content-center keeps the whole bar centered horizontally.
+               shadow adds a box shadow with bootstrap
+               bg-transparent makes the background transparent and removes any colors possibly behind it-->
+              <!-- input area-->
+              <label for="ip-input" class="visually-hidden">Search for an IP address or domain</label><!--label is hidden for screen readers-->
+              <input type="text"
+              class="ip-input form-control ps-3 pe-1 rounded-start border-end-0 "
+              id="ip-input"
+              placeholder="Search for any IP address or domain"
+              required
+              style="--bs-border-radius: 14px"
+              /> <!--form-control tells bootstrap this is a form and applies the width.
+              rounded-start to get the pill-left edge when paired with the button. style setting increases curve on the LEFT corners only with bootstrap.
+              the pattern checks for the validity of the ip address, in this case, an ipv4 ip address. took this out for now to focus on main. may make it work later if i can pattern="^((25[0-5]|2[0-4][0-9]|?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|?[0-9][0-9]?)$" -->
+
+              <!--validation msgs that work with bootstrap and the pattern check. Bootstrap will show/hide when you toggle classes-->
+              <!-- <div class="invalid-feedback">Incorrect IP Address</div>
+              <div class="valid-feedback">Correct IP Address</div> -->
+
+              <!--submit button-->
+              <!--btn-dark sets the color of this, rounded end rounds part of the button to help complete the shape in the design-->
+              <button type="submit"
+                class="submit-btn btn btn-dark rounded-end border-start-0 px-3"
+                aria-label="Search"
+                aria-controls="results-cards"
+                style="--bs-border-radius: 14px">
+                <img src="./images/icon-arrow.svg" alt="" aria-hidden="true" class="search-btn__img mx-auto"><!--aria-controls points screenreaders to the information style setting increases curve on the RIGHT corners only with bootstrap. mx-auto centers image horizontally-->
+                </button>
+              </form>
+
+              <!-- Error box (hidden by default, shown by renderIpInfo.js) -->
+              <div class="error-container container mt-2 text-center border-0 shadow rounded-4" >
+                <pre id="errorBox"
+                class="alert alert-danger visually-hidden"
+       role="alert"
+                aria-live="polite"></pre><!--bootstrap hides this thanks to the visually hidden part. text-danger shows red text and small is the text size. -->
+              </div>
+            </section>
+            </div>
+
+            <!-- loading spinner-->
+             <div id="spinner" class="position-fixed top-50 start-50 translate-middle" hidden>
+                <div class="spinner-grow" role="status" aria-label="Loading"></div>
+              </div>
+          <!--Results container-->
+          <section class="results container m-0 p-0 d-none fade" aria-live="polite" > <!--d-none hides this, we'll reveal it later with js. fade will make the card fade in when we're ready to reveal it. -->
+
+    <!--Location Image-->
+        <div class="map-container position-relative"  > <!--position relative allows child elements to be positioned absolutely if needed later. -->
+            <img src="https://media.nngroup.com/media/editor/2021/06/18/london-brixton-local.png" alt="map showing approximate location of ip address searched" class="map-placeholder__img" id="mapPin">
+            <img src="./images/icon-location.svg" alt="" aria-hidden="true" class="location__img">
+          </div>
+          <!--results card container-->
+            <div id="results-cards"
+            class="results container card border-0 shadow rounded-4 mx-auto text-center position-relative "
+            style="width: 85%; margin-top: -68rem; z-index: 2"><!--.z-index ensures the card stays layered above content as shown in final design the margin top being negative helps to float the section upword. -->
+          <!-- results-->
+           <!-- xs reduces font size
+            me-1 adds a small space btwn UTC and the value. stands for margin-end-->
+              <!-- ip address-->
+                <h2 class="results__title fw-bold mt-4">IP ADDRESS</h2><!--mt-1 to move it down slightly in the container. only for the top one-->
+                <p class="results__text fs-4 fw-semibold mb-3" id="ip-results"></p><!--fs is font-size in bootstrap-->
+              <!-- location-->
+                <h2 class="results__title   fw-bold">LOCATION</h2>
+                <p class="results__text fs-4 fw-semibold mb-3" id="location-results"></p>
+              <!-- timezone-->
+                <h2 class="results__title fw-bold">TIMEZONE</h2>
+                <p class="results__text fs-4 fw-semibold mb-3" id="timezone-results"><span class="timezone__label me-1 fs-4 fw-semibold">UTC</span></p>
+                  <!-- internet service provider-->
+                <h2 class="results__title fw-bold ">ISP</h2>
+                <p class="results__text fs-4 fw-semibold mb-4" id="isp-results"></p>
+
+            </div>
+          </section>
+            </div>
+          </div>
+
+          </section>
+
+
+  </section><!-- main container -->
+</main>
+
+
+
+
+  <div class="attribution container d-flex flex-row justify-content-center align-items-between">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"> Frontend Mentor</a>.
+    Coded by  <a href="#" class="attribution-link me-1"> Ella Koch</a>.
   </div>
+
+  <!-- JS files-->
+    <!--Bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <!-- Main JS file-->
+    <script type="module" src="./scripts/main.js"></script>
 </body>
 </html>
